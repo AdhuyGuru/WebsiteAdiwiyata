@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penugasan Digital: Menuju Sekolah Adiwiyata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .gradient-text { background: linear-gradient(90deg, #059669, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .modal-active { overflow: hidden; }
+        select:focus, input:focus, textarea:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+            outline: none;
+        }
+        .checkbox-card {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .checkbox-card:hover {
+            border-color: #10b981;
+            background-color: #f0fdf4;
+        }
+        .checkbox-card input:checked + span {
+            color: #059669;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        var submitted = false;
+        function handleIframeLoad() {
+            if (submitted) {
+                if (typeof showSuccess === "function") {
+                    showSuccess();
+                    setTimeout(fetchSubmittedData, 2000);
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-emerald-50 text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-emerald-100 p-4">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="https://ppdb.ppiabaitulmaal.sch.id/wp-content/uploads/2022/10/LOGO-SMP-1337x1536.png" alt="Logo SMP Islam Plus Baitul Maal" class="h-10 md:h-12">
+                <div class="hidden sm:block">
+                    <h1 class="font-bold text-emerald-800 text-sm md:text-lg">SMP Islam Plus Baitul Maal</h1>
+                    <p class="text-xs text-emerald-600 font-semibold uppercase tracking-wider">Informatika Kelas 8</p>
+                </div>
+            </div>
+            <div class="flex gap-2 text-xs md:text-sm">
+                <a href="#tugas" class="px-3 py-2 text-emerald-700 font-bold hover:bg-emerald-50 rounded-lg transition">Materi</a>
+                <a href="#monitoring" class="px-3 py-2 text-emerald-700 font-bold hover:bg-emerald-50 rounded-lg transition">Lihat Hasil</a>
+                <a href="#kumpul-tugas" class="bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-emerald-700 transition shadow-md">Kumpul Tugas</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="max-w-5xl mx-auto px-4 py-16 text-center">
+        <span class="bg-emerald-100 text-emerald-700 px-4 py-1 rounded-full text-sm font-bold uppercase mb-4 inline-block">Misi Lingkungan 2026</span>
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">Mewujudkan Sekolah <span class="gradient-text">Adiwiyata</span> dengan Kekuatan AI</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-8">Jadilah pionir perubahan! Gunakan kreativitasmu untuk menciptakan kampanye digital yang inspiratif dan edukatif bagi warga sekolah.</p>
+        
+        <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+            <div class="px-6 py-3 bg-white rounded-2xl shadow-sm border border-emerald-50 card-hover">
+                <span class="block text-2xl mb-1">🌿</span>
+                <h3 class="font-bold text-sm">Hijau & Asri</h3>
+            </div>
+            <div class="px-6 py-3 bg-white rounded-2xl shadow-sm border border-emerald-50 card-hover">
+                <span class="block text-2xl mb-1">♻️</span>
+                <h3 class="font-bold text-sm">Bebas Sampah</h3>
+            </div>
+            <div class="px-6 py-3 bg-white rounded-2xl shadow-sm border border-emerald-50 card-hover">
+                <span class="block text-2xl mb-1">🤖</span>
+                <h3 class="font-bold text-sm">Teknologi AI</h3>
+            </div>
+            <div class="px-6 py-3 bg-white rounded-2xl shadow-sm border border-emerald-50 card-hover">
+                <span class="block text-2xl mb-1">🎵</span>
+                <h3 class="font-bold text-sm">Lagu Kampanye</h3>
+            </div>
+        </div>
+    </header>
+
+    <!-- Studi Kasus -->
+    <section class="max-w-4xl mx-auto px-4 py-8">
+        <div class="bg-white p-8 rounded-3xl shadow-xl border border-emerald-100 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 bg-emerald-600 text-white font-bold rounded-bl-2xl">STUDI KASUS</div>
+            <h3 class="text-2xl font-bold mb-4 text-emerald-900 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                Tantangan Sekolah Adiwiyata
+            </h3>
+            <p class="mb-4 leading-relaxed text-slate-600">
+                Sekolah kita sedang berjuang meraih predikat <strong>Sekolah Adiwiyata</strong>. Namun, tantangan terbesarnya adalah membangun kesadaran agar tidak membuang sampah sembarangan dan menjaga tanaman sekolah.
+            </p>
+            <p class="mb-6 leading-relaxed text-slate-600 text-sm italic">
+                Tugasmu: Buatlah sebuah <strong>Website Kampanye Digital</strong> berisi <strong>Lagu buatan AI</strong> dan <strong>Game interaktif</strong> agar teman-temanmu semangat menjaga lingkungan!
+            </p>
+        </div>
+    </section>
+
+    <!-- Fitur Unggulan Kreatif -->
+    <section id="tugas" class="max-w-5xl mx-auto px-4 py-16 scroll-mt-20">
+        <h3 class="text-2xl font-bold mb-10 text-center">Kreasikan Websitemu Dengan:</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-8 rounded-3xl text-white shadow-lg relative overflow-hidden group">
+                <div class="relative z-10">
+                    <div class="bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-2xl animate-pulse">🎵</div>
+                    <h4 class="text-xl font-bold mb-2">Lagu Kampanye AI</h4>
+                    <p class="text-blue-100 text-sm mb-4 leading-relaxed">Gunakan AI Musik (seperti Suno/Udio) untuk membuat lagu bertema lingkungan.</p>
+                    <div class="bg-white/10 p-4 rounded-xl text-xs border border-white/20">
+                        <span class="font-bold text-blue-200 uppercase">Ide Prompt S.T.A.R:</span><br>
+                        "Buat lirik lagu Rap/Pop ceria (S) untuk mengajak siswa Baitul Maal menjaga kebersihan (T)..."
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-emerald-600 to-teal-700 p-8 rounded-3xl text-white shadow-lg relative overflow-hidden group">
+                <div class="relative z-10">
+                    <div class="bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-2xl animate-float">🎮</div>
+                    <h4 class="text-xl font-bold mb-2">Game Edukasi Interaktif</h4>
+                    <p class="text-emerald-100 text-sm mb-4 leading-relaxed">Minta AI membuatkan kode game sederhana untuk menantang temanmu beraksi.</p>
+                    <div class="bg-white/10 p-4 rounded-xl text-xs border border-white/20">
+                        <span class="font-bold text-emerald-200 uppercase">Ide Prompt S.T.A.R:</span><br>
+                        "Saya membuat web Adiwiyata (S). Buatlah kuis pilihan ganda yang unik tentang sampah... (R)."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Monitoring -->
+    <section id="monitoring" class="max-w-5xl mx-auto px-4 py-16 scroll-mt-20">
+        <div class="text-center mb-10">
+            <h3 class="text-3xl font-extrabold text-emerald-900">Lihat Hasil Tugas</h3>
+            <p class="text-slate-500 text-sm mt-2">Daftar karya kampanye digital yang telah dikirimkan.</p>
+        </div>
+        <div class="bg-white rounded-3xl shadow-xl border border-emerald-100 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-emerald-50 border-b border-emerald-100">
+                        <tr>
+                            <th class="p-4 text-xs font-bold text-emerald-800 uppercase">Kelas</th>
+                            <th class="p-4 text-xs font-bold text-emerald-800 uppercase">Kelompok</th>
+                            <th class="p-4 text-xs font-bold text-emerald-800 uppercase">Anggota</th>
+                            <th class="p-4 text-xs font-bold text-emerald-800 uppercase text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody" class="divide-y divide-emerald-50">
+                        <tr><td colspan="4" class="p-8 text-center text-slate-400 italic">Memuat data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Pengumpulan Tugas -->
+    <section id="kumpul-tugas" class="max-w-4xl mx-auto px-4 py-16 scroll-mt-20">
+        <div class="bg-white rounded-[2.5rem] shadow-2xl border border-emerald-100 overflow-hidden relative">
+            
+            <div id="loadingOverlay" class="hidden absolute inset-0 bg-white/90 z-50 flex flex-col items-center justify-center">
+                <div class="w-12 h-12 border-4 border-emerald-200 border-t-emerald-600 rounded-full animate-spin mb-4"></div>
+                <p class="font-bold text-emerald-800">Sedang mengirim data...</p>
+            </div>
+
+            <div id="successBox" class="hidden p-12 text-center flex flex-col items-center justify-center">
+                <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-4xl mb-6">✓</div>
+                <h3 class="text-3xl font-bold text-slate-800 mb-2">Berhasil Dikirim!</h3>
+                <p class="text-slate-600 mb-8">Karya kalian telah tercatat di sistem monitoring guru.</p>
+                <button onclick="window.location.reload()" class="bg-emerald-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-emerald-700 transition">Kirim Ulang</button>
+            </div>
+
+            <div id="formContainer">
+                <div class="bg-emerald-600 p-8 text-white text-center">
+                    <h3 class="text-2xl font-bold mb-2">Form Pengumpulan Tugas</h3>
+                    <p class="text-emerald-100 text-sm">Pastikan semua link sudah benar sebelum mengirim.</p>
+                </div>
+                
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="handleIframeLoad()"></iframe>
+
+                <form id="submissionForm" action="https://docs.google.com/forms/d/e/1FAIpQLScWMvtpUKPPn4ujGVkqyfSGbGbLl11DWtXjvlHjYZ7kVedkNQ/formResponse" method="POST" target="hidden_iframe" class="p-6 md:p-10 space-y-6">
+                    
+                    <!-- Pilihan Kelas (Checkbox) -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-2 uppercase">Pilih Kelas Kelompok</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <label class="checkbox-card flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <input type="checkbox" name="kelas_select" value="8A1" onchange="handleKelasChange()" class="accent-emerald-600 h-4 w-4">
+                                <span class="text-sm">8A1</span>
+                            </label>
+                            <label class="checkbox-card flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <input type="checkbox" name="kelas_select" value="8A2" onchange="handleKelasChange()" class="accent-emerald-600 h-4 w-4">
+                                <span class="text-sm">8A2</span>
+                            </label>
+                            <label class="checkbox-card flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <input type="checkbox" name="kelas_select" value="8B1" onchange="handleKelasChange()" class="accent-emerald-600 h-4 w-4">
+                                <span class="text-sm">8B1</span>
+                            </label>
+                            <label class="checkbox-card flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <input type="checkbox" name="kelas_select" value="8B2" onchange="handleKelasChange()" class="accent-emerald-600 h-4 w-4">
+                                <span class="text-sm">8B2</span>
+                            </label>
+                        </div>
+                        <input type="hidden" name="entry.1200963051" id="kelasHidden">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Nama Kelompok</label>
+                            <select name="entry.1803218370" id="kelompok" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm appearance-none">
+                                <option value="">-- Pilih Kelompok --</option>
+                                <option value="kelompok 1">Kelompok 1</option>
+                                <option value="kelompok 2">Kelompok 2</option>
+                                <option value="kelompok 3">Kelompok 3</option>
+                                <option value="kelompok 4">Kelompok 4</option>
+                                <option value="kelompok 5">Kelompok 5</option>
+                                <option value="kelompok 6">Kelompok 6</option>
+                                <option value="kelompok 7">Kelompok 7</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Cari Nama Anggota</label>
+                            <div class="relative">
+                                <input type="text" id="searchAnggota" placeholder="Ketik nama untuk mencari..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm pr-10" onkeyup="filterAnggota()">
+                                <span class="absolute right-3 top-3 text-slate-400">🔍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="entry.518981404" id="namaAnggota">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Ceklist Anggota Kelompok (Dari Kelas Terpilih)</label>
+                        <div id="anggotaList" class="grid grid-cols-1 sm:grid-cols-2 gap-2 p-4 bg-slate-50 border border-slate-200 rounded-xl max-h-52 overflow-y-auto">
+                            <span class="text-xs text-slate-400 italic">Pilih kelas di atas untuk melihat daftar nama...</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Teks Prompt STAR AI</label>
+                        <textarea name="entry.618892619" required placeholder="Tuliskan detail prompt yang kalian gunakan..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm h-28"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Link Share Chat AI</label>
+                            <input type="url" name="entry.1868394316" required placeholder="https://chatgpt.com/share/..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 mb-1 uppercase">Link Website Proyek</label>
+                            <input type="url" name="entry.1173153136" required placeholder="https://..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm">
+                        </div>
+                    </div>
+
+                    <button type="submit" onclick="submitted=true" class="w-full bg-emerald-600 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-emerald-700 transition flex items-center justify-center gap-2">
+                        Simpan & Kirim Tugas
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Detail Tugas -->
+    <div id="detailModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden">
+            <div class="bg-emerald-600 p-6 text-white flex justify-between items-center">
+                <h4 id="modalTitle" class="text-xl font-bold">Detail Tugas</h4>
+                <button onclick="closeModal()" class="text-white hover:text-emerald-200 text-3xl font-bold">&times;</button>
+            </div>
+            <div id="modalContent" class="p-8 space-y-6 overflow-y-auto max-h-[70vh]"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center bg-white border-t border-emerald-100">
+        <img src="https://ppdb.ppiabaitulmaal.sch.id/wp-content/uploads/2022/10/LOGO-SMP-1337x1536.png" alt="Logo" class="h-12 mx-auto mb-4">
+        <p class="text-slate-400 text-xs italic tracking-widest uppercase">Informatika - SMP Islam Plus Baitul Maal</p>
+    </footer>
+
+    <script>
+        const SHEET_ID = '1aYAWZjIkQq4WyzMwHP99K3mSNf_9YnsiTBh4hIwGJ5s';
+        const API_KEY = 'AIzaSyAy8HSGXNMACGiOAG4kBguWmQVumPIH4NU';
+        const RANGE = 'Form Responses 1!A:G';
+
+        const databaseSiswa = {
+            "8A1": ["Ahmad Fikra Musthafa Al Harits", "Ahsan Nafis Syazani", "Aisy Amarullah Hasyim", "Almarzuq Ramadhan Qoimuddin", "Asykar Munadhil Syabib Irnowo", "Azzam Fadhil Ramadhan", "Fatih Fadhila Widadi", "Gathan Fikra Narendra", "Ikhsan Ramadhan Kusnadi", "Maulana Hikari Anwar", "Muchammad Agha Hanafi", "Muhammad Abdul Hafiz", "Muhammad Almandaffa Alfatih", "Muhammad Arfan Hashif", "Muhammad Fahry Arfa Athallah", "Muhammad Imaduddin Akhtar", "Muhammad Milan Al Fattah", "Muhammad Razka Thariq Ad Dhawy", "Muhammad Roffiq Musaffa", "Pramudya Adhyastha Rusnanda"],
+            "8A2": ["Aimar Adhyastha Pratama", "Akhtar Haidar Sanjaya", "Altafveda Aditya Darma Qodri", "Azzam Al Khawarizmi Abdillah", "Eijaz Zhaafirous Sayyaf", "Fahmi Akbar", "Faiq Zaid Abyan", "Hariz Hadi Haripin", "Ibrahim Banna Haniyya", "Muhammad Aidan Mafaza", "Muhammad Al Barra Dinejad", "Muhammad Faeyza Al Faris", "Muhammad Ichigo Ararie Putra", "Muhammad Ikhtiar Basyari", "Muhammad Majda Izzul Muttaqi", "Muhammad Yusuf Mubarok", "Muhammad Zahfan Hafizhuddin", "Muhammad Zuhair Asyraf", "Pradipta Bagaskara Rusnanda", "Rasya Zildan Anugrah", "Sachio Salim Baihaqi", "Muhammad Hanif Faiz"],
+            "8B1": ["Aisha Raihana", "Arfa Syazia Bisyri", "Aruni Khaira Sabila", "Arvina Andya Putri", "Athaya Zahratus Silmi", "Atiqah Fauziyah Rahmah", "Eunicia Akbar Ricardo Modi", "Fairuz Azzahra Mandai", "Farihah Alanna Hanifah", "Hanifa Raisa Anindytha", "Kayyasa Syalabiyyah Purnomosidi", "Kirania Maiza", "Pricillia Helma Efrida", "Sahla Abira Syufie"],
+            "8B2": ["Almira Qanita Farzani Wakhid", "Alya Ulfa", "Aqila El Khaliqia Latif", "Charissa Azkya Syahputri", "Hafidzah Bequina Aghniya Amin", "Hana Althafunnisa", "Intan Fitri Mahrizal", "Kayla Azka Shazia Wibowo", "Lulu Fatin Nabila", "Mazaya Nairuwa Annadif", "Salma Farai Lathifa", "Shakila Hana Azzahra", "Shani Asadel Fathinah", "Shofia Izzatul Ilmi", "Zahirah Kaisah Putri"]
+        };
+
+        const anggotaList = document.getElementById('anggotaList');
+        const searchInput = document.getElementById('searchAnggota');
+        const namaAnggotaHidden = document.getElementById('namaAnggota');
+        const kelasHidden = document.getElementById('kelasHidden');
+        const tableBody = document.getElementById('tableBody');
+
+        // Logic saat checkbox kelas berubah
+        window.handleKelasChange = function() {
+            const checkboxes = document.querySelectorAll('input[name="kelas_select"]:checked');
+            const selectedKelas = Array.from(checkboxes).map(cb => cb.value);
+            
+            kelasHidden.value = selectedKelas.join(', ');
+            renderAnggota(selectedKelas);
+        };
+
+        function renderAnggota(selectedKelas) {
+            anggotaList.innerHTML = '';
+            if (selectedKelas.length === 0) {
+                anggotaList.innerHTML = '<span class="text-xs text-slate-400 italic">Pilih kelas di atas untuk melihat daftar nama...</span>';
+                return;
+            }
+
+            let combinedList = [];
+            selectedKelas.forEach(kelas => {
+                if (databaseSiswa[kelas]) {
+                    databaseSiswa[kelas].forEach(nama => {
+                        combinedList.push({ nama, kelas });
+                    });
+                }
+            });
+
+            combinedList.sort((a, b) => a.nama.localeCompare(b.nama));
+
+            combinedList.forEach(item => {
+                const label = document.createElement('label');
+                label.className = "anggota-item flex items-center gap-2 p-2 bg-white border border-slate-100 rounded-lg cursor-pointer hover:bg-emerald-50 transition text-[10px] sm:text-xs";
+                label.innerHTML = `
+                    <input type="checkbox" value="${item.nama} (${item.kelas})" onchange="updateNames()" class="accent-emerald-600"> 
+                    <span>${item.nama} <b class="text-emerald-500 text-[9px]">[${item.kelas}]</b></span>
+                `;
+                anggotaList.appendChild(label);
+            });
+            
+            // Reset search input saat ganti kelas
+            searchInput.value = '';
+        }
+
+        // Fungsi Filter Pencarian Anggota
+        window.filterAnggota = function() {
+            const filter = searchInput.value.toLowerCase();
+            const items = anggotaList.getElementsByClassName('anggota-item');
+            
+            Array.from(items).forEach(item => {
+                const name = item.innerText.toLowerCase();
+                if (name.includes(filter)) {
+                    item.style.display = "";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        };
+
+        window.updateNames = function() {
+            const selected = Array.from(anggotaList.querySelectorAll('input:checked')).map(i => i.value);
+            namaAnggotaHidden.value = selected.join(', ');
+        };
+
+        async function fetchSubmittedData() {
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                if (data.values) {
+                    processData(data.values);
+                } else {
+                    tableBody.innerHTML = '<tr><td colspan="4" class="p-8 text-center text-slate-400">Belum ada data.</td></tr>';
+                }
+            } catch (error) {
+                tableBody.innerHTML = '<tr><td colspan="4" class="p-8 text-center text-red-500">Koneksi gagal.</td></tr>';
+            }
+        }
+
+        function processData(rows) {
+            const dataRows = rows.slice(1);
+            const map = new Map();
+            dataRows.forEach(row => {
+                const key = `${row[1]}-${row[2]}`.toLowerCase();
+                map.set(key, row);
+            });
+            renderTable(Array.from(map.values()).reverse());
+        }
+
+        function renderTable(data) {
+            tableBody.innerHTML = '';
+            if (data.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="4" class="p-8 text-center text-slate-400">Belum ada data.</td></tr>';
+                return;
+            }
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-emerald-50/50 transition";
+                tr.innerHTML = `
+                    <td class="p-4 text-sm font-bold text-slate-700">${row[1]}</td>
+                    <td class="p-4 text-sm text-slate-600 font-semibold">${row[2]}</td>
+                    <td class="p-4 text-xs text-slate-500 italic max-w-xs truncate">${row[3]}</td>
+                    <td class="p-4 text-center">
+                        <button onclick='openDetail(${JSON.stringify(row)})' class="bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-emerald-600 hover:text-white transition">Detail</button>
+                    </td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
+
+        window.openDetail = function(data) {
+            document.getElementById('modalTitle').innerText = `${data[1]} - ${data[2]}`;
+            document.getElementById('modalContent').innerHTML = `
+                <div><h5 class="text-xs font-bold text-slate-400 uppercase mb-1">Anggota</h5><p class="text-slate-700 text-sm font-bold">${data[3]}</p></div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100"><h5 class="text-xs font-bold text-emerald-600 uppercase mb-2">Prompt S.T.A.R AI</h5><p class="text-slate-600 text-sm whitespace-pre-wrap">${data[4]}</p></div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="${data[5]}" target="_blank" class="flex-1 bg-blue-50 text-blue-700 p-3 rounded-xl text-center font-bold text-xs">Chat AI</a>
+                    <a href="${data[6]}" target="_blank" class="flex-1 bg-emerald-50 text-emerald-700 p-3 rounded-xl text-center font-bold text-xs">Website</a>
+                </div>
+            `;
+            document.getElementById('detailModal').classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        };
+
+        window.closeModal = function() {
+            document.getElementById('detailModal').classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        };
+
+        window.showSuccess = function() {
+            document.getElementById('loadingOverlay').classList.add('hidden');
+            document.getElementById('formContainer').classList.add('hidden');
+            document.getElementById('successBox').classList.remove('hidden');
+        };
+
+        window.onload = fetchSubmittedData;
+
+        document.getElementById('submissionForm').onsubmit = function() {
+            if (!namaAnggotaHidden.value) {
+                alert("Pilih minimal satu anggota!");
+                return false;
+            }
+            if (!kelasHidden.value) {
+                alert("Pilih minimal satu kelas!");
+                return false;
+            }
+            document.getElementById('loadingOverlay').classList.remove('hidden');
+            return true;
+        };
+    </script>
+</body>
+</html>
