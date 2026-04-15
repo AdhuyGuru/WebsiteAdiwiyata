@@ -401,14 +401,23 @@
             data.forEach(row => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-emerald-50/50 transition";
+                
+                // Membuat struktur kolom
                 tr.innerHTML = `
                     <td class="p-4 text-sm font-bold text-slate-700">${row[1]}</td>
                     <td class="p-4 text-sm text-slate-600 font-semibold">${row[2]}</td>
                     <td class="p-4 text-xs text-slate-500 italic max-w-xs truncate">${row[3]}</td>
                     <td class="p-4 text-center">
-                        <button onclick='openDetail(${JSON.stringify(row)})' class="bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-emerald-600 hover:text-white transition">Detail</button>
+                        <button class="btn-detail bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-emerald-600 hover:text-white transition">Detail</button>
                     </td>
                 `;
+
+                // Menambahkan event listener secara spesifik pada tombol di baris ini
+                // Ini mencegah error akibat karakter tanda kutip dalam data JSON
+                tr.querySelector('.btn-detail').addEventListener('click', () => {
+                    openDetail(row);
+                });
+
                 tableBody.appendChild(tr);
             });
         }
